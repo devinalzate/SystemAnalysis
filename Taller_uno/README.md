@@ -49,7 +49,7 @@ Reads a file and searches for the most frequent DNA motif (substring of length `
 - **Parameters:**
   - `file` (String): The path to the file containing DNA sequences.
   - `size` (int): The length of the motif to search for.
-- **Returns:** A `String` describing the most frequent motif and its count.
+- **Returns:** A `String` describing the most frequent motif, its count and the time that its executed.
 - **Throws:** `FileNotFoundException`, `IOException`.
 
 ---
