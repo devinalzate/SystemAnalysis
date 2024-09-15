@@ -1,4 +1,4 @@
-# Bioinformatic Class
+# Bioinformatic workshop
 
 This class provides several methods related to bioinformatics, including sequence generation, entropy calculation, and motif finding. Below is a brief description of each method and its parameters.
 
