@@ -1,5 +1,5 @@
 # Bioinformatic workshop
-##bioinformatic
+## Bioinformatic class
 This class provides several methods related to bioinformatics, including sequence generation, entropy calculation, and motif finding. Below is a brief description of each method and its parameters.
 
 ### Methods
@@ -54,4 +54,27 @@ Reads a file and searches for the most frequent DNA motif (substring of length `
 
 ---
 
-This class is designed for working with DNA sequences in bioinformatics. It allows for the generation of random sequences, entropy analysis, and motif identification from data stored in text files.
+## Controller Class
+
+This class acts as the main controller for managing and executing the functionality provided by the `bioinformatic` class. It demonstrates the process of generating DNA sequences, saving them to a file, finding the most frequent motif, and calculating entropy.
+
+## Overview
+
+The `controller` class instantiates the `bioinformatic` class and uses its methods to:
+1. Generate random DNA sequences.
+2. Store these sequences in a text file.
+3. Find the most frequent motif (substring) in the sequences.
+4. Calculate the Shannon entropy of the generated sequences.
+
+## Constructor
+
+### `controller()`
+
+The constructor initializes the bioinformatic process and coordinates the following steps:
+
+1. **Create Bioinformatic Instance:**
+   - A `bioinformatic` object named `jaja` is created to access its methods.
+
+2. **Generate Sequences:**
+   - Calls the `sequence` method from the `bioinformatic` class to generate 10,000 random DNA sequences, each 6 nucleotides long. The parameters `0`, `2`, `3`, and `1` are used as keys to assign nucleotides (A, C, G, T).
+
