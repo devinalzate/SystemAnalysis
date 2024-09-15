@@ -1,10 +1,10 @@
 # Bioinformatic workshop
-
+##bioinformatic
 This class provides several methods related to bioinformatics, including sequence generation, entropy calculation, and motif finding. Below is a brief description of each method and its parameters.
 
-## Methods
+### Methods
 
-### 1. `sequence(int quantity, int size, int key_A, int key_C, int key_G, int key_T)`
+#### 1. `sequence(int quantity, int size, int key_A, int key_C, int key_G, int key_T)`
 
 Generates a list of random DNA sequences based on the given keys for nucleotides.
 
@@ -17,7 +17,7 @@ Generates a list of random DNA sequences based on the given keys for nucleotides
   - `key_T` (int): Key to generate a "T" nucleotide.
 - **Returns:** An `ArrayList<String>` of DNA sequences.
 
-### 2. `calculateEntropy(ArrayList<String> sequences)`
+#### 2. `calculateEntropy(ArrayList<String> sequences)`
 
 Calculates the Shannon entropy for each sequence and returns the average entropy across all sequences.
 
@@ -25,7 +25,7 @@ Calculates the Shannon entropy for each sequence and returns the average entropy
   - `sequences` (ArrayList<String>): A list of DNA sequences.
 - **Returns:** The average entropy as a `double`.
 
-### 3. `dataBaseSequences(int quantity, ArrayList<String> sequence)`
+#### 3. `dataBaseSequences(int quantity, ArrayList<String> sequence)`
 
 Stores DNA sequences in a HashMap, with the index as the key and the sequence as the value.
 
@@ -34,7 +34,7 @@ Stores DNA sequences in a HashMap, with the index as the key and the sequence as
   - `sequence` (ArrayList<String>): The list of sequences.
 - **Returns:** A `HashMap<Integer, String>` containing the indexed sequences.
 
-### 4. `createTxT(HashMap<Integer, String> list)`
+#### 4. `createTxT(HashMap<Integer, String> list)`
 
 Creates a text file `database.txt` and writes the sequences from the HashMap into the file.
 
@@ -42,7 +42,7 @@ Creates a text file `database.txt` and writes the sequences from the HashMap int
   - `list` (HashMap<Integer, String>): The HashMap containing sequences to write into the file.
 - **Returns:** None (writes to a file).
 
-### 5. `findMotif(String file, int size)`
+#### 5. `findMotif(String file, int size)`
 
 Reads a file and searches for the most frequent DNA motif (substring of length `size`).
 
