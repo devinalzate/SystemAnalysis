@@ -65,7 +65,7 @@ public class bioinformatic {
             for (int count : counter) {
                 double probrability = (double)count/sequence.length();
                 if(probrability > 0 ){
-                    entropy =- probrability * Math.log10(probrability) / Math.log(2);
+                    entropy =- -probrability * Math.log(probrability) / Math.log(2);
                     
                 }
             }
@@ -73,7 +73,7 @@ public class bioinformatic {
         }
         double sum = 0;
         for(int i = 0; i < indivEntropy.size(); i++){
-            sum =+ indivEntropy.get(i);
+            sum += indivEntropy.get(i);
         }
         double average = sum / indivEntropy.size();
         return average;
@@ -108,6 +108,7 @@ public class bioinformatic {
     }
 
     public String findMotif(String file, int size) throws FileNotFoundException, IOException { 
+        long startTime = System.nanoTime();
         ArrayList<String> lines = new ArrayList<>();
         try (FileReader f = new FileReader(file); 
             BufferedReader b = new BufferedReader(f)) {
@@ -129,17 +130,26 @@ public class bioinformatic {
         HashMap<String , Integer> motifList = new HashMap<>();
         for(String line : lines){
             char characters[] = line.toCharArray();
+            ArrayList<Character> charactersList = new ArrayList<>();
             
-            String sequence = "";
-            for (int i = 0; i < size; i++) {
-                sequence = sequence + characters[i];
+            for (char c : characters) {
+                charactersList.add(c); 
             }
-            if(!motifList.containsKey(sequence)){
-                motifList.put(sequence , 1);
-            }else{
-                int size2 = motifList.get(sequence) + 1;
-                motifList.replace(sequence, size2);
+
+            while (charactersList.size() >= size) {
+                String sequence = "";
+                for (int i = 0; i < size && !charactersList.isEmpty(); i++) {
+                    sequence = sequence + charactersList.remove(0); 
+                }
+                
+                if (!motifList.containsKey(sequence)) {
+                    motifList.put(sequence, 1); 
+                } else {
+                    int size2 = motifList.get(sequence) + 1; 
+                    motifList.replace(sequence, size2);
+                }
             }
+            
         }
         
         int biggest = Integer.MIN_VALUE;
@@ -153,9 +163,12 @@ public class bioinformatic {
                 biggest = value;      
                 keyWithBiggest = key; 
             }
+            
         }
+        long endTime = System.nanoTime();
+        long time = (endTime - startTime) / 1000000;
 
-        return "el motif es: " + keyWithBiggest + " con una cantidad de: " + biggest;
+        return "el motif es: " + keyWithBiggest + " con una cantidad de: " + biggest + " encontrados en un tiempo de: " + time + " milisegundos";
     }
     
     
